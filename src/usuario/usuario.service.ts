@@ -1,26 +1,32 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { ParcialUsuarioDto } from './dto/parcial-usuario.dto';
 
 @Injectable()
 export class UsuarioService {
-  create(createUsuarioDto: CreateUsuarioDto) {
-    return 'This action adds a new usuario';
+  
+  async create(data: CreateUsuarioDto) {
+    return {data}
   }
 
-  findAll() {
-    return `This action returns all usuario`;
+  async findAll() {
+    return {usuarios:[]};
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} usuario`;
+  async findOne(id: number) {
+    return {id}
   }
 
-  update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return `This action updates a #${id} usuario`;
+  async update(id: number, data: UpdateUsuarioDto) {
+    return {id, data}
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
+  async parcial(id: number, data: ParcialUsuarioDto) {
+    return {id, data}
+  }
+
+  async remove(id: number) {
+    return {id}
   }
 }
